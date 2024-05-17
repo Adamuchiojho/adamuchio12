@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer Casar Comigo?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .heart {
+            font-size: 100px;
+            color: red;
+            animation: beat 1s infinite alternate;
+        }
+        @keyframes beat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        .button:hover {
+            background-color: #e91e63;
+        }
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quer Casar Comigo?</h1>
+    <div class="heart">❤️</div>
+    <p>Você é a pessoa mais especial da minha vida. Quero passar todos os meus dias com você.</p>
+    <div class="button-container">
+        <button class="button" onclick="showMessage()">Sim!</button>
+        <button class="button" id="noButton" onclick="showMessageNo()">Não...</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert('Você me fez a pessoa mais feliz do mundo! Eu te amo!');
+        }
+
+        function showMessageNo() {
+            alert('Eu vou continuar tentando te conquistar todos os dias!');
+        }
+
+        document.getElementById('noButton').addEventListener('mouseover', function() {
+            const button = this;
+            const maxWidth = window.innerWidth - button.clientWidth;
+            const maxHeight = window.innerHeight - button.clientHeight;
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
